@@ -11,7 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
+NAME_DATABASE = os.getenv('NAME_DATABASE')
+USER_DATABASE = os.getenv('USER_DATABASE')
+PASSWORD_DATABASE = os.getenv('PASSWORD_DATABASE')
+HOST_DATABASE = os.getenv('HOST_DATABASE')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,8 +84,12 @@ WSGI_APPLICATION = 'project_quikform.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': NAME_DATABASE,
+        'USER': USER_DATABASE,
+        'PASSWORD': PASSWORD_DATABASE,
+        'HOST': HOST_DATABASE,
+        'PORT': '5432',
     }
 }
 
