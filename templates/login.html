@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="cadastro-02.css">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
 </head>
 <body>
     <div class="right-container">
-        <form>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
             <h2>Login</h2>
-            <input name="Email" class="login-input" type="text" placeholder="Email" required>
+            <input name="email" class="login-input" type="text" placeholder="Email" required>
             <input name="password" class="login-input" type="password" placeholder="Senha" required>
             <a href="#">Esqueci a senha</a>
             <button class="login-button" type="submit">Login</button>
-            <h3>Não tem conta? Faça o <a href="cadastro.html">Cadastro</a></h3>
+            {% for message in messages %}
+                <div class="error-validation-user">
+                    <strong></strong>{{ message }}
+                </div>
+            {% endfor %}
+            <h3>Não tem conta? Faça o <a href="{% url 'cadastro' %}">Cadastro</a></h3>
         </form>
     </div>
     <div class="left-container"><h1>QuikForm</h1>
