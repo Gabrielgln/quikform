@@ -2,13 +2,11 @@ body, h1, h2, p{
     margin: 0;
 }
 
-.container-cad{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
-
 }
 
 h1{
