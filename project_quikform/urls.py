@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cadastro/', views.cadastro, name='cadastro'),
     path('login/', views.Login, name='login'),
-    path('inicio/', views.Inicio, name='inicio')
+    path('inicial/', views.inicial, name='inicial')
 ]
