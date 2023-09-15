@@ -35,3 +35,6 @@ def Login(request):
         else:
             messages.error(request, "Seu usuário ou senha estão incorretos.")
     return render(request,'login.html')
+
+def inicio(request):
+    return render(request, 'inicio.html')
