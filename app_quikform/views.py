@@ -36,5 +36,12 @@ def Login(request):
             messages.error(request, "Seu usuário ou senha estão incorretos.")
     return render(request,'login.html')
 
+
+def redefinir_email(request):
+    return render(request, 'redefinir_email.html')
+
+def redefinir_senha(request):
+    return render(request, 'redefinir_senha.html')
+
 def inicial(request):
     return render(request, 'inicial.html')

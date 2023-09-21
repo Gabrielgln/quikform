@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir</title>
+        
+    <link rel="stylesheet" type="text/css" href="{% static 'css/redefinir_email.css' %}">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container-cad">
+        <div class="left-container">
+            <h1>QuikForm</h1>
+            <p>Redefina sua senha de forma simples e prática. Informe apenas o seu email de cadastro.</p>
+        </div>
+        
+        <div class="right-container">
+            <form id="form">
+                <h2>Redefinir senha</h2>
+            
+                <input name="email" class="login-input" type="email" placeholder="Email" required oninput="emailValidation()">                
+                <button id="btn-redefinir" class="login-button" type="submit">Receber código</button>
+            
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/redefinir_email.js' %}"></script>
+</body>
+</html>

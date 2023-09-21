@@ -1,87 +1,200 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo</title>
-    <link rel="stylesheet" href="{% static 'css/inicial.css' %}">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.min.css' %}">
+    <title>Navbar</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
 </head>
+
 <body>
-  <div class="bar-inicio">
-    <h1>QuikForm</h1>
-    <nav class="menu">
-      <ol>
-        <li class="menu-item"><a href="inicial.html">Início</a></li>
-        <li class="menu-item"><a href="#0">Sobre</a></li>
-        <li class="menu-item">
-          <a href="#0">Formulário</a>
-          <ol class="sub-menu">
-            <li class="menu-item"><a href="#0">Criar formulário</a></li>
-            <li class="menu-item"><a href="#0">Editar formulário</a></li>
-            <li class="menu-item"><a href="#0">Visualizar formulário</a></li>
-          </ol>
-        </li>
-        <li class="menu-item">
-          <a href="#0">Relatórios</a>
-          <ol class="sub-menu">
-            <li class="menu-item"><a href="#0">Gerar relatório</a></li>
-            <li class="menu-item"><a href="#0">Ver relatório</a></li>
-            <li class="menu-item"><a href="#0">Enviar por Email</a></li>
-          </ol>
-        </li>
-        <li class="menu-item"><a href="contato.html">Contato</a></li>
-      </ol>
-    </nav>
-    <div class="perfil">
-      <figure class="image-figure">
-          <img class="fir-author-image fir-clickcircle" src="https://scontent.fjdo1-2.fna.fbcdn.net/v/t1.6435-9/80373942_1816976448433274_4484371174750420992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH8TFxZiE19_HeXao0Dj8bjemtiVtzvC7d6a2JW3O8Lt52Xp0gIUfG4zoqlw2fA2plKI5cy8COHGV_3J2TguR_5&_nc_ohc=NgBVBgZJYh0AX-XmSag&_nc_ht=scontent.fjdo1-2.fna&oh=00_AfCVslJg7KdqdVanG2zeFPDAtedcpi9qTXnWxbs0cmdAqw&oe=65130650" alt="David East - Author">
-        <figcaption>
-          <div class="name">Ronildo Lima</div>
-          <details class="dropdown">
-            <summary role="button">
-              <a class="button">View profile</a>
-            </summary>
-            <ul>
-              <li><a href="#">Perfil</a></li>
-              <li><a href="#">Mensagens</a></li>
-              <li><a href="#">Configurações</a></li>
-              <li><a href="cadastro-02.html">Logout</a></li>
-          </ul>
-        </details>
-        </figcaption>
-      </figure>
-  </div>
-  </div>
-    
-<div class="slider">
-    <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
-    <input type="radio" name="slider" title="slide2" class="slider__nav"/>
-    <input type="radio" name="slider" title="slide3" class="slider__nav"/>
-    <input type="radio" name="slider" title="slide4" class="slider__nav"/>
-    <div class="slider__inner">
-      <div class="slider__contents"><i class="slider__image fa fa-codepen"></i>
-        <img class="img-slide" src="vindo.png" alt="">
-        <h2 class="slider__caption">Bem Vindo</h2>
-        <p class="slider__txt">Seja bem vindo ao QuikForm, aqui você pode criar e administrar formulários de forma simples e rápida.</p>
-      </div>
-      <div class="slider__contents"><i class="slider__image fa fa-newspaper-o"></i>
-        <img class="img-slide" src="nav.png" alt="">
-        <h2 class="slider__caption">Crie formulários</h2>
-        <p class="slider__txt">Crie formulários com diferentes tipos de entrada e surpreenda-se.</p>
-      </div>
-      <div class="slider__contents"><i class="slider__image fa fa-television"></i>
-        <img class="img-slide" src="relatorio.png" alt="">
-        <h2 class="slider__caption">Gere relatórios</h2>
-        <p class="slider__txt">Gere relatórios de maneira simple e eficiente, acompanhe de perto.</p>
-      </div>
-      <div class="slider__contents"><i class="slider__image fa fa-diamond"></i>
-        <img class="img-slide" src="email.png" alt="">
-        <h2 class="slider__caption">Envie</h2>
-        <p class="slider__txt">Compartilhe por email os relatórios gerados e fique por dentro da sua pesquisa.</p>
-      </div>
+    <header>
+        <nav id="nav">
+            <a class="logo" href="/">QuikForm</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Formulários</a></li>
+                <li><a href="#">Relatórios</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+
+            <div class="perfil">
+                <figure class="image-figure">
+                    <img class="fir-author-image fir-clickcircle"
+                        src="https://scontent.fjdo1-2.fna.fbcdn.net/v/t1.6435-9/80373942_1816976448433274_4484371174750420992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH8TFxZiE19_HeXao0Dj8bjemtiVtzvC7d6a2JW3O8Lt52Xp0gIUfG4zoqlw2fA2plKI5cy8COHGV_3J2TguR_5&_nc_ohc=NgBVBgZJYh0AX-XmSag&_nc_ht=scontent.fjdo1-2.fna&oh=00_AfCVslJg7KdqdVanG2zeFPDAtedcpi9qTXnWxbs0cmdAqw&oe=65130650"
+                        alt="David East - Author">
+                    <figcaption class="profile">
+                        <div class="name">Ronildo Lima</div>
+                        <button class="btn-perfil uk-button uk-button-text" type="button">Perfil</button>
+                        <div uk-dropdown>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li><a href="#">Alterar perfil</a></li>
+                                <li class="uk-nav-header">Predefinições</li>
+                                <li><a href="#">Tema</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </nav>
+    </header>
+    <div class="uk-section-small uk-section-muted">
+        <div class="uk-container uk-flex uk-flex-around">
+
+
+            <!-- This is a button toggling the modal -->
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button"
+                uk-toggle="target: #modal-git">Projeto</button>
+            <!-- This is the modal -->
+            <div id="modal-git" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <h2 class="uk-modal-title">QuikForm</h2>
+                    <p>Acesse nosso repositório no GitHub e conheça um pouco mais sobre esse projeto de desenvolvimento
+                        de um site para criação de formulários dinâmicos.
+                    </p>
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Sair</button>
+                        <button class="uk-button uk-button-primary" type="button"><a href="">GitHub</a></button>
+                    </p>
+                </div>
+            </div>
+
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button"
+                uk-toggle="target: #modal-apresentacao">Seções</button>
+            <!-- This is the modal -->
+            <div id="modal-apresentacao" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <h2 class="uk-modal-title">Apresentação</h2>
+                    <ul class="uk-list uk-list-disc">
+                        <li><a class="section" href="#inicio" uk-scroll>Inicio</a></li>
+                        <li><a class="section" href="#servicos" uk-scroll>Serviços</a></li>
+                        <li><a class="section" href="#news" uk-scroll>Newsletter</a></li>
+                    </ul>
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Sair</button>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="{% static 'js/inicial.js' %}"></script>
+
+    <hr class="uk-divider-icon"><!--Divider Page-->
+
+    <header id="inicio" class="bottom">
+        <div class="uk-container uk-container-large">
+            <div class="uk-container uk-container-large uk-flex uk-flex-center">
+                <div class="uk-container uk-width-1-2">
+                    <h2>Título</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis id laborum quisquam quas. Nemo, nihil perspiciatis rem ullam itaque cum officiis esse aperiam beatae consectetur delectus, at iusto facilis inventore.</p>
+                    <button class="uk-button uk-button-default">Comece agora &#8594;</button>
+                </div>
+
+                <div class="uk-container right">
+                    <img class="imagem" src="https://cdn-icons-png.flaticon.com/512/4599/4599802.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <menu id="servicos">
+        <h1 class="titulo uk-heading-line uk-text-center"><span>Serviços</span></h1>
+        <div class="uk-child-width-1-3@m" uk-grid
+            uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
+            <div>
+                <div class="uk-card uk-card-body">
+                    <h3 class="uk-card-title uk-flex uk-flex-center">Crie formulários</h3>
+                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="uk-flex uk-flex-center">
+                        <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/4838/4838646.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-body" uk-scrollspy-class="uk-animation-slide-top">
+                    <h3 class="uk-card-title uk-flex uk-flex-center">Gere relatórios</h3>
+                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="uk-flex uk-flex-center">
+                        <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/3094/3094851.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-body">
+                    <h3 class="uk-card-title uk-flex uk-flex-center">Envie por email</h3>
+                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="uk-flex uk-flex-center">
+                        <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/2989/2989993.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </menu>
+
+    <footer>
+        <h1 id="news" class="titulo uk-heading-line uk-text-center"><span>Newsletter</span></h1>
+
+        <div class="uk-section uk-flex uk-flex-center">
+            <div class="uk-container uk-container-small">
+                <h2 class="uk-flex uk-flex-center"></h2>
+                <p class="sec-news uk-flex uk-flex-center">Insira seu email abaixo e fique por dentro das novidades, saiba tudo
+                    em primeira mão.</p>
+
+                <form>
+
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <a class="uk-form-icon" href="#" uk-icon="icon: mail"></a>
+                            <input class="uk-input uk-placeholder" type="text" aria-label="Clickable icon">
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+                <!-- This is a button toggling the modal -->
+                <button class="btn-news uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button"
+                    uk-toggle="target: #modal-example">Cadastrar</button>
+
+                <!-- This is the modal -->
+                <div id="modal-example" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Newsletter</h2>
+                        <p>Ao enviar, você concorda em receber notícias e atualizações diretamente no seu email.</p>
+                        <p class="uk-text-right">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-primary" type="submit">Enviar</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+    <form action="">
+        <h1 id="news" class="titulo uk-heading-line uk-text-center"><span>Contato</span></h1>
+
+        
+        
+    </form>
+
+    <a class="totop" href="#nav" uk-totop></a>
+
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'js/inicio.js' %}"></script>
 </body>
+
+</html>
