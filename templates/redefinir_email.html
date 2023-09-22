@@ -17,7 +17,8 @@
         </div>
         
         <div class="right-container">
-            <form id="form">
+            <form id="form" method="POST" action="{% url 'redefinir_email' %}">
+                {% csrf_token %}
                 <h2>Redefinir senha</h2>
             
                 <input name="email" class="login-input" type="email" placeholder="Email" required oninput="emailValidation()">                

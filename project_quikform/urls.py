@@ -6,7 +6,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cadastro/', views.cadastro, name='cadastro'),
     path('login/', views.Login, name='login'),
+    path('logout/', views.logout_user, name='logout'),
     path('', views.inicial, name='inicial'),
     path('redefinir_email/', views.redefinir_email, name='redefinir_email'),
-    path('redefinir_senha/', views.redefinir_senha, name='redefinir_senha')
+    path('redefinir_senha/<str:token>/', views.redefinir_senha, name='redefinir_senha')
 ]
