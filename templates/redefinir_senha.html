@@ -1,29 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova senha</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/redefinir_senha.css' %}">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-</head>
-<body>
-    <div class="container-cad">
-        <div class="right-container">
-            <form method="POST">
-                {% csrf_token %}
-                <h4>QUIKFORM</h4>
-                <h2>Nova senha</h2>
-                <input name="password" id="password" class="login-input" type="password" placeholder="Nova senha" required>
-                <input name="confirmPassword" class="login-input" type="password" placeholder="Confirmar senha" required>
 
-                <button class="login-button" type="submit">Redefinir</button>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
+    <title>Redefinir senha</title>
+</head>
+
+<body>
+
+    <div id="main" class="main uk-flex" uk-container-expand>
+        <div id="right" class="right uk-width-1-2 uk-flex uk-flex-center">
+            <form method="POST" id="form" class="uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+                {% csrf_token %}
+
+                <h1 class="title2">Redefinir senha</h1>
+
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                        <input name="password" id="pass" class="uk-input uk-form-width-large" type="password"
+                            aria-label="Not clickable icon" placeholder="Senha" required oninput="passwordValidation()">
+                    </div>
+                </div>
+
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                        <input id="pass2" name="confirmPassword" class="uk-input uk-form-width-large" type="password"
+                            aria-label="Not clickable icon" placeholder="Confirmar senha" required
+                            oninput="passwordMatchValidation()">
+                    </div>
+                </div>
+
+                <button id="btn-submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                    type="submit" onclick="UIkit.notification({message: 'Senha redefinida com sucesso', status: 'success'})">Redefinir</button>
+                <div class="login-btn">Já tem conta? Faça o <a href="{% url 'login' %}">login</a></div>
             </form>
         </div>
-        <div class="left-container"><h1>QuikForm</h1>
+
+        <div id="left" class="left uk-width-1-2 uk-flex uk-flex-column uk-flex-center uk-text-center">
+            <h2 class="title">QuikForm</h2>
             <p>Agora insira sua nova senha, e confirme.</p>
         </div>
     </div>
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'js/resize.js' %}"></script>
+    <script src="{% static 'js/redefinir_email.js' %}"></script>
 </body>
-</html>
