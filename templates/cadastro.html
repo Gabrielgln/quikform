@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="left-container"><h1>QuikForm</h1>
+        <p>Crie sua conta em apenas alguns passos simples e desbloqueie acesso instantâneo a nossa plataforma. Comece a desfrutar dos recursos exclusivos ao criar sua conta hoje mesmo!</p>
+    </div>
+    <div class="right-container">
+        <form action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            <h2>Sign up</h2>
+            <input name="nome" class="login-input" type="text" placeholder="Usuário">
+            <input name="email" class="login-input" type="text" placeholder="Email">
+            <input name="password" class="login-input" type="password" placeholder="Senha">
+            <input name="confirm-password" class="login-input" type="password" placeholder="Confirmar senha">
+            <input type="checkbox" name="termos" id="termos">
+            <label for="termos">
+                <a href="#.html">Aceitar os termos de responsabilidade</a>
+            </label>
+            <button class="login-button" type="submit">Sign up</button>
+            {% for message in messages %}
+                <div class="error-validation-email">
+                    <strong></strong>{{ message }}
+                </div>
+            {% endfor %}
+            
+        </form>
+        <h3>Ja tem conta? Faça o <a href="{% url 'login' %}">login</a></h3>
+    </div>
+    <script src="{% static 'js/cadastro.js' %}"></script>
+</body>
+</html>

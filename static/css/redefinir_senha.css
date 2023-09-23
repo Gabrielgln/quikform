@@ -1,0 +1,232 @@
+body, h1, h2, p{
+    margin: 0;
+}
+
+.container-cad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+}
+
+h1{
+    color: #000;
+    text-align: center;
+    font-family: Inknut Antiqua;
+    font-size: 6.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 3%;
+}
+
+p{
+    color: #000;
+    text-align: center;
+    font-family: Inknut Antiqua;
+    font-size: 1.55rem;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.2em; /* Ajuste o valor conforme necessário */
+}
+
+
+
+.left-container, .right-container {
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    float: left; /* Inclui borda e padding na largura total */
+    padding: 20px; /* Apenas para espaçamento interno */
+}
+
+.left-container {
+    background-color: #fff;
+}
+
+.right-container {
+    background-color: #c77dff;
+    height:96%;
+}
+
+h3,a{
+    color: white;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3%;
+    color: #ffffff;
+}
+
+form {
+    text-align: center;
+    position: relative;
+    margin-top: 35%;
+}
+a{
+    text-decoration: none;
+}
+
+.login-btn {
+    position: absolute;
+    top: 20%;
+    right: 80%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.login-input {
+    display: block;
+    width: 30rem;
+    height: 1.5rem;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+.login-button {
+    display: block;
+    width: 30rem;
+    height: 2.5rem;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+
+    background-color: #3c096c;
+    color: #fff;
+
+    border: none;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+input[type="checkbox"] {
+    display: none;
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Ajuste para a posição da borda */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #007bff; /* Cor da borda */
+    border-radius: 3px;
+    background-color: white;
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: "\2713"; /* Marca de seleção ✓ */
+    font-size: 16px;
+    color: #007bff; /* Cor da marca de seleção */
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 0, 0, 0);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0);
+    border-radius: 10px;
+  }
+
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 60%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label {
+    position: absolute;
+    top:10%;
+    left: 20%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -30%;
+    left: 20%;
+    color: #000000;
+    font-size: 12px;
+  }
+
+  .span{
+    color: rgb(178, 57, 233);
+}
+h4{
+    display: none;
+}
+@media screen and (max-width: 600px) {
+
+    body{
+        background-color: #c77dff;
+    }
+
+    .login-input{
+        width: auto;
+    }
+
+    .login-button{
+        width: auto;
+    }
+    
+    .container-cad {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: 200px;
+    }
+    .left-container{
+        display: none;
+    }
+
+    .right-container {
+        background-color: #00000000;
+        height:96%;
+    }
+    .form{
+        align-items: center;
+        justify-content: center;
+    }
+
+    h4{
+        color: #000;
+    }
+    
+  }

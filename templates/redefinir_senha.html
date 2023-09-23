@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova senha</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/redefinir_senha.css' %}">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container-cad">
+        <div class="right-container">
+            <form method="POST">
+                {% csrf_token %}
+                <h4>QUIKFORM</h4>
+                <h2>Nova senha</h2>
+                <input name="password" id="password" class="login-input" type="password" placeholder="Nova senha" required>
+                <input name="confirmPassword" class="login-input" type="password" placeholder="Confirmar senha" required>
+
+                <button class="login-button" type="submit">Redefinir</button>
+            </form>
+        </div>
+        <div class="left-container"><h1>QuikForm</h1>
+            <p>Agora insira sua nova senha, e confirme.</p>
+        </div>
+    </div>
+</body>
+</html>
