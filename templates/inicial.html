@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ini.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.min.css' %}">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
@@ -24,7 +25,6 @@
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Formulários</a></li>
                 <li><a href="#">Relatórios</a></li>
-                <li><a href="#">Contato</a></li>
             </ul>
 
             <div class="perfil">
@@ -34,7 +34,7 @@
                         alt="David East - Author">
                     <figcaption class="profile">
                         <div class="name">{{ user.first_name }}</div>
-                        <button class="btn-perfil uk-button uk-button-text" type="button">Perfil</button>
+                        <button class="titles uk-button uk-button-text" type="button">Perfil</button>
                         <div uk-dropdown>
                             <ul class="uk-nav uk-dropdown-nav">
                                 <li><a href="#">Alterar perfil</a></li>
@@ -77,9 +77,9 @@
                 <div class="uk-modal-dialog uk-modal-body">
                     <h2 class="uk-modal-title">Apresentação</h2>
                     <ul class="uk-list uk-list-disc">
-                        <li><a class="section" href="#inicio" uk-scroll>Inicio</a></li>
                         <li><a class="section" href="#servicos" uk-scroll>Serviços</a></li>
                         <li><a class="section" href="#news" uk-scroll>Newsletter</a></li>
+                        <li><a class="section" href="#contato" uk-scroll>Contato</a></li>
                     </ul>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-default uk-modal-close" type="button">Sair</button>
@@ -112,7 +112,7 @@
             uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
             <div>
                 <div class="uk-card uk-card-body">
-                    <h3 class="uk-card-title uk-flex uk-flex-center">Crie formulários</h3>
+                    <h3 class="titles uk-card-title uk-flex uk-flex-center">Crie formulários</h3>
                     <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/4838/4838646.png" alt="">
@@ -121,7 +121,7 @@
             </div>
             <div>
                 <div class="uk-card uk-card-body" uk-scrollspy-class="uk-animation-slide-top">
-                    <h3 class="uk-card-title uk-flex uk-flex-center">Gere relatórios</h3>
+                    <h3 class="titles uk-card-title uk-flex uk-flex-center">Gere relatórios</h3>
                     <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/3094/3094851.png" alt="">
@@ -130,7 +130,7 @@
             </div>
             <div>
                 <div class="uk-card uk-card-body">
-                    <h3 class="uk-card-title uk-flex uk-flex-center">Envie por email</h3>
+                    <h3 class="titles uk-card-title uk-flex uk-flex-center">Envie por email</h3>
                     <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/2989/2989993.png" alt="">
@@ -146,7 +146,7 @@
         <div class="uk-section uk-flex uk-flex-center">
             <div class="uk-container uk-container-small">
                 <h2 class="uk-flex uk-flex-center"></h2>
-                <p class="sec-news uk-flex uk-flex-center">Insira seu email abaixo e fique por dentro das novidades, saiba tudo
+                <p class="titles sec-news uk-flex uk-flex-center">Insira seu email abaixo e fique por dentro das novidades, saiba tudo
                     em primeira mão.</p>
 
                 <form>
@@ -163,7 +163,7 @@
                 </form>
 
                 <!-- This is a button toggling the modal -->
-                <button class="btn-news uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button"
+                <button class="titles uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button"
                     uk-toggle="target: #modal-example">Cadastrar</button>
 
                 <!-- This is the modal -->
@@ -184,6 +184,127 @@
     </footer>
 
     <form action="">
+        <h1 id="contato" class="titulo uk-heading-line uk-text-center"><span>Contato</span></h1>
+
+        <div class="grid uk-child-width-expand@s " uk-grid>
+            <div>
+                <h2 class="titles uk-margin-medium-top uk-text-center">QuikForm</h2>
+                <p class="rede-title uk-margin-medium-left uk-margin-medium-right uk-margin-large-top uk-text-center">Uma inovadora aplicação
+                    de formulários está revolucionando a maneira como as empresas coletam e gerenciam dados. Com uma
+                    interface intuitiva e altamente personalizável, essa aplicação permite que organizações de todos os
+                    tamanhos criem formulários digitais de maneira eficiente e ágil.</p>
+            </div>
+            <div class="">
+                <h2 class="titles uk-margin-medium-top uk-text-center">Redes sociais</h2>
+                <div class="uk-flex uk-flex-column uk-flex-middle ">
+                    <p class="rede-title uk-margin-remove">GitHub</p>
+                    <button class="uk-button uk-button-default uk-margin-medium-bottom"><a href=""><span
+                                uk-icon="github"></span></a></button>
+                    <p class="rede-title uk-margin-remove">Instagram</p>
+                    <button class="uk-button uk-button-default uk-margin-medium-bottom"><a href=""><span
+                                uk-icon="instagram"></span></a></button>
+                    <p class="rede-title uk-margin-remove">Linkedin</p>
+                    <button class="uk-button uk-button-default"><a href=""><span uk-icon="linkedin"></span></a></button>
+                </div>
+            </div>
+            <div class="uk-margin-medium-bottom uk-flex uk-flex-column uk-text-center">
+                <form>
+                    <fieldset class="uk-fieldset uk-margin-medium-right uk-margin-medium-left uk-margin-medium-bottom uk-text-center">
+
+                        <h2 class="titles uk-margin-medium-top">Contato</h2>
+
+                        <div class="uk-margin">
+                            <input class="uk-input uk-text-center" type="email" placeholder="Email" aria-label="Input">
+                        </div>
+
+                        <div class="uk-margin">
+                            <textarea class="uk-textarea uk-text-center" rows="5" placeholder="Escreva sua mensagem"
+                                aria-label="Textarea"></textarea>
+                        </div>
+                        <button class="titles-btn uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Enviar</button>
+                    </fieldset>
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </form>
+
+    <hr class="uk-divider-icon">
+
+    <p class="uk-text-center">Copyright © 2023 | QuikForm | All rights reserved <a class="terms" href="#terms"
+            uk-toggle>Terms of service</a></p>
+
+    <div id="terms" uk-modal>
+        <div class="uk-modal-dialog">
+
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Termos de serviços</h2>
+            </div>
+
+            <div class="uk-modal-body" uk-overflow-auto>
+
+                <h3>Última atualização: 23 de setembro de 2023</h1>
+
+                    <h4>Aceitação dos Termos de Serviço</h4>
+                    <p>Bem-vindo ao QuikForm! Este documento estabelece os Termos de Serviço ("Termos") que
+                        regem o uso dos serviços oferecidos pelo QuikForm ("nós", "nosso" ou "site") aos nossos
+                        usuários ("você" ou "usuário"). Ao acessar ou utilizar nosso site e serviços, você concorda em
+                        cumprir estes Termos. Se você não concordar com estes Termos, por favor, não utilize nosso site.
+                    </p>
+
+                    <h4>Uso dos Serviços</h4>
+                    <p>Conta de Usuário: Para utilizar alguns dos recursos do QuikForm, você pode ser
+                        solicitado a criar uma conta de usuário. Você é responsável por manter a confidencialidade de
+                        suas informações de conta e por todas as atividades que ocorrerem sob sua conta.</p>
+                    <p>Condições de Uso: Você concorda em usar o QuikForm apenas para fins legais e de acordo
+                        com estes Termos. Você não deve usar nossos serviços para atividades ilegais, fraudulentas ou
+                        prejudiciais.</p>
+
+                    <h4>Privacidade e Dados</h4>
+                    <p>Privacidade: Nós respeitamos a sua privacidade. Nossa Política de Privacidade explica como
+                        coletamos, usamos e compartilhamos informações pessoais. Ao usar nossos serviços, você concorda
+                        com a coleta e o uso de suas informações de acordo com nossa Política de Privacidade.</p>
+                    <p>Dados do Formulário: Os dados e informações enviados através de formulários criados no QuikForm
+                        pertencem ao criador do formulário. Recomendamos que os criadores de formulários revelem
+                        suas políticas de privacidade aos respondentes.</p>
+
+                    <h4>Propriedade Intelectual</h4>
+                    <p>Direitos Autorais: Todos os direitos autorais, marcas registradas e outros direitos de
+                        propriedade intelectual relacionados ao QuikForm são de nossa propriedade ou
+                        licenciados para nós. Você concorda em respeitar esses direitos e não deve copiar, modificar ou
+                        distribuir nosso conteúdo sem autorização.</p>
+
+                    <h4>Limitação de Responsabilidade</h4>
+                    <p>Isenção de Responsabilidade: O QuikForm é fornecido "no estado em que se encontra", e
+                        não fazemos garantias sobre a disponibilidade, confiabilidade ou precisão de nossos serviços.
+                        Não somos responsáveis por quaisquer danos diretos ou indiretos resultantes do uso de nosso
+                        site.</p>
+
+                    <h4>Alterações nos Termos de Serviço</h4>
+                    <p>Atualizações: Podemos atualizar estes Termos periodicamente para refletir mudanças em nossos
+                        serviços ou na legislação aplicável. Você será notificado de quaisquer alterações
+                        significativas, e sua continuação no uso do QuikForm após a atualização constituirá sua
+                        aceitação dos novos Termos.</p>
+
+                    <h4>Encerramento de Conta</h4>
+                    <p>Encerramento: Reservamo-nos o direito de encerrar ou suspender sua conta e acesso ao Formulário
+                        Online, a nosso critério, sem aviso prévio, se violar estes Termos.</p>
+
+                    <h4>Estes Termos de Serviço constituem o acordo integral entre você e o QuikForm. Se você
+                        tiver alguma dúvida ou preocupação, entre em contato conosco através dos meios de contato
+                        fornecidos em nosso site.</h4>
+                    <h4>Obrigado por escolher o QuikForm! Esperamos que aproveite nossos serviços.</h4>
+                    <h4>Atenciosamente, equipe QuikForm</h4>
+
+            </div>
+        </div>
+    </div>
 
         
         

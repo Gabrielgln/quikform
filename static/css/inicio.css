@@ -1,226 +1,240 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-
-
-  .uk-text{
-    color: #fff;
-  }
-  
-  a {
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  a:hover {
-    color: #000000;
-  }
-  
-  .logo {
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    background: #76108a;
-    height: 8vh;
-  }
-  
-  .nav-list {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-list li {
-    letter-spacing: 3px;
-    margin-left: 32px;
-  }
-  
-  .mobile-menu {
-    display: none;
-    cursor: pointer;
-  }
-  
-  .mobile-menu div {
-    width: 32px;
-    height: 2px;
-    background: #fff;
-    margin: 8px;
-    transition: 0.3s;
-  }
-  
-  @media (max-width: 999px) {
-    body {
-      overflow-x: hidden;
-    }
-    .nav-list {
-      position: absolute;
-      top: 8vh;
-      right: 0;
-      width: 50vw;
-      height: 92vh;
-      background: #76108a;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in;
-      z-index: 2;
-    }
-    .nav-list li {
-      margin-left: 0;
-      opacity: 0;
-    }
-    .mobile-menu {
-      display: block;
-    }
-  }
-  
-  .nav-list.active {
-    transform: translateX(0);
-  }
-  
-  @keyframes navLinkFade {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  .mobile-menu.active .line1 {
-    transform: rotate(-45deg) translate(-8px, 8px);
-  }
-  
-  .mobile-menu.active .line2 {
-    opacity: 0;
-  }
-  
-  .mobile-menu.active .line3 {
-    transform: rotate(45deg) translate(-5px, -7px);
-  }
-
-  /*--------------------------------------------------------------*/
-
-.section{
-    color: black;
+  margin: 0;
+  padding: 0;
 }
 
-.btn{
+
+.uk-text{
   color: #fff;
 }
 
-.totop{
-    position: fixed;
-    margin-top: 35%;
-    margin-left: 2%;
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.uk-section{
-    background: #76108a
+a:hover {
+  color: #000000;
 }
 
-.imagem{
-  width: 612px;
-  height: auto;
-    filter: invert(0);
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
-.imagem2{
-  width: 400px;
-  height: auto;
-    filter: invert(1);
-}
-
-.uk-flex-uk-flex-center{
-  width: 200px;
-  height: auto;
-    filter: invert(1);
-}
-
-.uk-container > h2{
-  font-size: 50px;
-}
-
-.uk-container > p{
-  font-size: 20px;
-}
-
-.uk-card{
-  background: #76108a
-}
-
-.uk-card > p{
-  color: white;
-}
-
-.uk-child > h3{
-  color: white;
-}
-
-.titulo{
-  margin: 50px;
-}
-
-.uk-margin{
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #76108a;
+  height: 8vh;
 }
 
-.perfil > h2{
-  padding: 0px;
-  margin: 0;
-  color:#91847a;
+.nav-list {
+  list-style: none;
+  display: flex;
 }
 
-.perfil > p{
-  margin: 0;
-  color:#91847a;
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
 }
 
-.fir-clickcircle {
-  height: 50px;
-  width: 50px;
-  border-radius: 100px;
+.mobile-menu {
+  display: none;
   cursor: pointer;
 }
 
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #76108a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+    z-index: 2;
+  }
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/*--------------------------------------------------------------*/
+
+.section{
+  color: black;
+}
+
+.btn{
+color: #fff;
+}
+
+.totop{
+  position: fixed;
+  margin-top: 35%;
+  margin-left: 2%;
+}
+
+.uk-section{
+  background: #76108a
+}
+
+.imagem{
+width: 612px;
+height: auto;
+  filter: invert(0);
+}
+
+.imagem2{
+width: 400px;
+height: auto;
+  filter: invert(1);
+}
+
+.uk-flex-uk-flex-center{
+width: 200px;
+height: auto;
+  filter: invert(1);
+}
+
+.uk-container > h2{
+font-size: 50px;
+}
+
+.uk-container > p{
+font-size: 20px;
+}
+
+.uk-card{
+background: #76108a
+}
+
+.uk-card > p{
+color: white;
+}
+
+.uk-child > h3{
+color: white;
+}
+
+.titulo{
+margin: 50px;
+}
+
+.uk-margin{
+display: flex;
+flex-direction: column;
+}
+
+.perfil > h2{
+padding: 0px;
+margin: 0;
+color:#91847a;
+}
+
+.perfil > p{
+margin: 0;
+color:#91847a;
+}
+
+.fir-clickcircle {
+height: 50px;
+width: 50px;
+border-radius: 100px;
+cursor: pointer;
+}
+
 .image-figure {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0px;
-  text-decoration: none;
+margin: 0;
+display: flex;
+align-items: center;
+margin-bottom: 0px;
+text-decoration: none;
 }
 
 .image-figure .caption, .image-figure figcaption {
-  padding-left: 15px;
+padding-left: 15px;
 }
 
 .fir-image-figure .name .desc {
-  color: var(--fir-color-grey);
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  margin-top: 2px;
+color: var(--fir-color-grey);
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-weight: 400;
+font-size: 15px;
+margin-top: 2px;
 }
 
 .name{
   color: rgb(255, 255, 255);
   font-size: 20px;
-}   
+  }   
+  .list-contato{
+  color: rgb(255, 255, 255);
+  }
+  
+  .grid{
+  background-color: #76108a;
+  }
+  
+  .titles, .rede-title{
+  color: white ;
+  }
+  
+  .terms{
+  color: black;
+  }
 
-.p , .uk-card-title , .sec-news , .btn-perfil, .btn-news{
-    color: white;
-}
-
+  .titles-btn{
+      color: white;
+  }
