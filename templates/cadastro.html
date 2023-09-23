@@ -1,39 +1,158 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
-    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
-    <title>Sign up</title>
+    <title>Cadastro</title>
 </head>
+
 <body>
-    <div class="left-container"><h1>QuikForm</h1>
-        <p>Crie sua conta em apenas alguns passos simples e desbloqueie acesso instantâneo a nossa plataforma. Comece a desfrutar dos recursos exclusivos ao criar sua conta hoje mesmo!</p>
-    </div>
-    <div class="right-container">
-        <form action="{% url 'cadastro' %}" method="POST">
-            {% csrf_token %}
-            <h2>Sign up</h2>
-            <input name="nome" class="login-input" type="text" placeholder="Usuário">
-            <input name="email" class="login-input" type="text" placeholder="Email">
-            <input name="password" class="login-input" type="password" placeholder="Senha">
-            <input name="confirm-password" class="login-input" type="password" placeholder="Confirmar senha">
-            <input type="checkbox" name="termos" id="termos">
-            <label for="termos">
-                <a href="#.html">Aceitar os termos de responsabilidade</a>
-            </label>
-            <button class="login-button" type="submit">Sign up</button>
-            {% for message in messages %}
+    <div id="main" class="main uk-flex" uk-container-expand>
+        <div id="left" class="left uk-width-1-2 uk-flex uk-flex-column uk-flex-center uk-text-center">
+            <h2 class="title">QuikForm</h2>
+            <p>Crie sua conta em apenas alguns passos simples e desbloqueie acesso instantâneo a nossa plataforma.
+                Comece a desfrutar dos recursos exclusivos ao criar sua conta hoje mesmo!</p>
+        </div>
+        <div id="right" class="right uk-width-1-2 uk-flex uk-flex-center">
+            <form id="form" class="uk-flex uk-flex-column uk-flex-center uk-flex-middle" form
+                action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+                <h1 class="title2">Sign Up</h1>
+                <div class="uk-margin uk-text-center ">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input id="name" name="nome" class="uk-input uk-form-width-large" type="text"
+                            aria-label="Not clickable icon" placeholder="Usuário" required oninput="nameValidation()">
+                    </div>
+                </div>
+
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: mail"></span>
+                        <input id="email" name="email" class="uk-input uk-form-width-large" type="email"
+                            aria-label="Not clickable icon" placeholder="Email" required oninput="emailValidation()">
+                    </div>
+                </div>
+
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                        <input id="pass" name="password" id="password" class="uk-input uk-form-width-large"
+                            type="password" aria-label="Not clickable icon" placeholder="Senha" required
+                            oninput="passwordValidation()">
+                    </div>
+                </div>
+
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
+                        <input id="pass2" name="confirmPassword" class="uk-input uk-form-width-large" type="password"
+                            aria-label="Not clickable icon" placeholder="Confirmar senha" required
+                            oninput="passwordMatchValidation()">
+                    </div>
+                </div>
+
+                <!-- This is an anchor toggling the modal -->
+                <div class="termos">Ao se cadastrar, você concorda com os <a href="#modal-overflow" uk-toggle>termos de
+                        responsabilidade</a></div>
+                <!-- This is the modal -->
+                <div id="modal-overflow" uk-modal>
+                    <div class="uk-modal-dialog">
+
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                        <div class="uk-modal-header">
+                            <h2 class="uk-modal-title">Termos de compromisso</h2>
+                        </div>
+
+                        <div class="uk-modal-body" uk-overflow-auto>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                    type="submit">Cadastrar</button>
+                {% for message in messages %}
                 <div class="error-validation-email">
                     <strong></strong>{{ message }}
                 </div>
-            {% endfor %}
-            
-        </form>
-        <h3>Ja tem conta? Faça o <a href="{% url 'login' %}">login</a></h3>
+                {% endfor %}
+                <div class="login-btn">Já tem conta? Faça o <a href="{% url 'login' %}">login</a></div>
+            </form>
+        </div>
     </div>
+
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}"></script>
     <script src="{% static 'js/cadastro.js' %}"></script>
+    <script src="{% static 'js/resize.js' %}"></script>
 </body>
-</html>
