@@ -1,32 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redefinir</title>
-        
-    <link rel="stylesheet" type="text/css" href="{% static 'css/redefinir_email.css' %}">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
+    <title>Redefinir senha</title>
 </head>
+
 <body>
-    <div class="container-cad">
-        <div class="left-container">
-            <h1>QuikForm</h1>
+
+    <div id="main" class="main uk-flex" uk-container-expand>
+        <div id="left" class="left uk-width-1-2 uk-flex uk-flex-column uk-flex-center uk-text-center">
+            <h2 class="title">QuikForm</h2>
             <p>Redefina sua senha de forma simples e prática. Informe apenas o seu email de cadastro.</p>
         </div>
-        
-        <div class="right-container">
-            <form id="form" method="POST" action="{% url 'redefinir_email' %}">
+        <div id="right" class="right uk-width-1-2 uk-flex uk-flex-center">
+            <form id="form" method="POST" action="{% url 'redefinir_email' %}" class="uk-flex uk-flex-column uk-flex-center uk-flex-middle">
                 {% csrf_token %}
-                <h2>Redefinir senha</h2>
-            
-                <input name="email" class="login-input" type="email" placeholder="Email" required oninput="emailValidation()">                
-                <button id="btn-redefinir" class="login-button" type="submit">Receber código</button>
-            
+                <h1 class="title2">Redefinir senha</h1>
+                <div class="uk-margin uk-text-center">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: mail"></span>
+                        <input id="email" name="email" class="uk-input uk-form-width-large" type="email"
+                            aria-label="Not clickable icon" placeholder="Email" required oninput="emailValidation()">
+                    </div>
+                </div>
+                <div class="termos">Você receberá um link para redifinir a senha no seu email</div>
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                    type="submit" id="btn-submit" >Receber link</button>
+                <div class="login-btn">Não tem conta? Faça o <a href="{% url 'cadastro' %}">cadastro</a></div>
             </form>
         </div>
     </div>
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'js/resize.js' %}"></script>
     <script src="{% static 'js/redefinir_email.js' %}"></script>
 </body>
-</html>
