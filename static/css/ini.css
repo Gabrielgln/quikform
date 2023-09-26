@@ -1,0 +1,23 @@
+.name{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    }   
+    .list-contato{
+    color: rgb(255, 255, 255);
+    }
+    
+    .grid{
+    background-color: #76108a;
+    }
+    
+    .titles, .rede-title{
+    color: white ;
+    }
+    
+    .terms{
+    color: black;
+    }
+
+    .titles-btn{
+        color: white;
+    }
