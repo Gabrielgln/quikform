@@ -26,7 +26,8 @@ class User(AbstractUser):
         recipient_list = [email]
         send_mail(subject, message, from_email, recipient_list)
 
-
-
+class Pergunta(models.Model):
+    id = models.AutoField(primary_key=True)
+    descricao = models.TextField(max_length=255, null=False)
 
 

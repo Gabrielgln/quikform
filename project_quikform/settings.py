@@ -71,12 +71,20 @@ WSGI_APPLICATION = 'project_quikform.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default2': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': NAME_DATABASE,
         'USER': USER_DATABASE,
         'PASSWORD': PASSWORD_DATABASE,
         'HOST': HOST_DATABASE,
+        'PORT': '5432',
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nrldamls',
+        'USER': 'nrldamls',
+        'PASSWORD': 'FQUBsSkTAfbgKDXZ5yjQ0EQMAQwOzlmO',
+        'HOST': 'silly.db.elephantsql.com',
         'PORT': '5432',
     }
 }

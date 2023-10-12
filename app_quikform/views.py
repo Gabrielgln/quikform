@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from app_quikform.models import User
+from app_quikform.models import User, Pergunta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
@@ -90,3 +90,25 @@ def inicial(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+def formulario(request):
+    perguntas = Pergunta.objects.all()
+    return render(request,'formulario.html',{'perguntas':perguntas})
+
+
+def add_pergunta(request):
+    if request.method == 'POST':
+        descricao = request.POST.get('inputPergunta')
+        
+        pergunta = Pergunta(descricao=descricao)
+        pergunta.save()
+
+
+    return redirect('/formulario')
+
+def delete_pergunta(request,id_pergunta):
+        
+    pergunta = Pergunta.objects.get(id=id_pergunta)
+    pergunta.delete()
+
+    return redirect('/formulario')
