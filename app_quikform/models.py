@@ -26,8 +26,20 @@ class User(AbstractUser):
         recipient_list = [email]
         send_mail(subject, message, from_email, recipient_list)
 
+class Formulario(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.TextField(max_length=255, null=False)
+    categoria = models.TextField(max_length=255, null=False)
+    numero_pergunta = models.IntegerField(null=False, default=0)
+    numero_resposta = models.IntegerField(null=False, default=0)
+    data_criacao = models.DateField(default=timezone.now)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE,null=False)
+
+    
 class Pergunta(models.Model):
     id = models.AutoField(primary_key=True)
     descricao = models.TextField(max_length=255, null=False)
+    formulario_id = models.ForeignKey(Formulario, on_delete=models.CASCADE,null=True)
 
+    
 

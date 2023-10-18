@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from app_quikform.models import User, Pergunta
+from app_quikform.models import User, Pergunta, Formulario
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
@@ -91,24 +91,50 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
-def formulario(request):
-    perguntas = Pergunta.objects.all()
-    return render(request,'formulario.html',{'perguntas':perguntas})
+def formulario(request,formulario_id):
+    perguntas = Pergunta.objects.filter(formulario_id_id=formulario_id)
+    formulario = Formulario.objects.get(id=formulario_id)
+    return render(request,'formulario.html',{'perguntas':perguntas,'formulario':formulario})
 
 
 def add_pergunta(request):
     if request.method == 'POST':
+        formulario_id = request.POST.get('formulario_id')
         descricao = request.POST.get('inputPergunta')
+        print(formulario_id)
         
-        pergunta = Pergunta(descricao=descricao)
+        pergunta = Pergunta(descricao=descricao,formulario_id_id=formulario_id)
         pergunta.save()
 
 
-    return redirect('/formulario')
+    return redirect(f'/formulario/{formulario_id}')
 
 def delete_pergunta(request,id_pergunta):
         
     pergunta = Pergunta.objects.get(id=id_pergunta)
+    formulario_id = pergunta.formulario_id_id
     pergunta.delete()
 
-    return redirect('/formulario')
+    return redirect(f'/formulario/{formulario_id}')
+
+def gerenciador_formulario(request):
+    username = request.user
+    user = User.objects.get(username=username)
+    formularios = Formulario.objects.filter(user_id_id=user.id)
+
+    return render(request,'gerenciador_form.html',{'formularios':formularios})
+
+def add_formulario(request):
+    username = request.user
+    user = User.objects.get(username=username)
+
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        categoria = request.POST.get('categoria')
+
+        formulario = Formulario(titulo=titulo, categoria=categoria, user_id_id=user.id)
+
+        formulario.save()
+
+    return redirect('/gerenciador_formulario')
+

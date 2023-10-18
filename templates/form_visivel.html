@@ -56,52 +56,10 @@
     <main>
         <div class="uk-flex uk-flex-center">
             <div class="uk-flex uk-flex-column uk-flex-center">
-
-                <div
-                    class="uk-left uk-section uk-section-primary uk-margin-medium-top uk-margin-medium-right uk-width-2xlarge">
-                    <div class="uk-container uk-container-small">
-                        <h1 class="uk-text-center">Criação de formulário</h1>
-
-                        <form method="POST" class="uk-margin-medium-top" action="{% url 'add_pergunta' %}">
-                            {% csrf_token %}
-                            <fieldset class="uk-fieldset">
-
-                                <legend class="uk-legend">Insira a pergunta</legend>
-
-                                <div class="uk-margin">
-                                    <input name="formulario_id" id="formulario_id" class="uk-input" type="number" value="{{formulario.id}}" placeholder="Pergunta"
-                                        aria-label="Input" hidden>
-
-                                    <input name="inputPergunta" id="inputPergunta" class="uk-input" type="text" placeholder="Pergunta"
-                                        aria-label="Input">
-                                </div>
-
-                                <legend class="uk-legend">Insira o tipo de resposta</legend>
-
-                                <div class="uk-margin">
-                                    <select class="uk-select" aria-label="Select">
-                                        <option id="inputSimples">Resposta simples</option>
-                                        <option id="inputLonga">Resposta longa</option>
-                                        <option id="inputMultipla">Multipla escolha</option>
-                                    </select>
-                                </div>
-                            </fieldset>
-                            <div class="uk-flex uk-flex-between">
-                                <button id="criar" class="uk-button uk-button-default" type="submit">Adicionar pergunta</button>
-                                <button id="excluir" class="uk-button uk-button-default">Excluir última
-                                    pergunta</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
                 <div class="uk-right uk-section uk-section-primary uk-margin-medium-top uk-width-2xlarge">
                     <div class="uk-container uk-container-small">
-
-
-
                         <form class="uk-margin-large-top">
-                            <h1 class="uk-text-center">{{formulario.titulo}}</h2>
+                            <h1 class="uk-text-center">Nome do formulário</h2>
                                 <ul class="uk-list">
 
                                     {% for pergunta in perguntas %}
