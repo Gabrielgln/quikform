@@ -34,16 +34,14 @@
                 <figure class="image-figure">
                     <img class="fir-author-image fir-clickcircle"
                         src="https://scontent.fjdo1-2.fna.fbcdn.net/v/t1.6435-9/80373942_1816976448433274_4484371174750420992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH8TFxZiE19_HeXao0Dj8bjemtiVtzvC7d6a2JW3O8Lt52Xp0gIUfG4zoqlw2fA2plKI5cy8COHGV_3J2TguR_5&_nc_ohc=NgBVBgZJYh0AX-XmSag&_nc_ht=scontent.fjdo1-2.fna&oh=00_AfCVslJg7KdqdVanG2zeFPDAtedcpi9qTXnWxbs0cmdAqw&oe=65130650"
-                        alt="David East - Author">
+                        alt="{{ user.first_name }}">
                     <figcaption class="profile">
-                        <div class="name">Ronildo Lima</div>
+                        <div class="name">{{ user.first_name }}</div>
                         <button class="btn uk-button uk-button-text" type="button">Perfil</button>
                         <div uk-dropdown>
                             <ul class="uk-nav uk-dropdown-nav">
                                 <li><a href="#">Alterar perfil</a></li>
-                                <li class="uk-nav-header">Predefinições</li>
                                 <li><a href="#">Tema</a></li>
-                                <li class="uk-nav-divider"></li>
                                 <li><a href="#">Logout</a></li>
                             </ul>
                         </div>
@@ -89,14 +87,14 @@
                             <tbody>
                                 {% for formulario in formularios %}
                                 <tr>
-                                    <td><a class="uk-link-heading" href="{% url 'formulario' formulario.id %}">{{formulario.titulo}}</a></td>
+                                    <td>{{formulario.titulo}}</td>
                                     <td>{{formulario.categoria}}</td>
                                     <td>{{formulario.numero_pergunta}}</td>
                                     <td>{{formulario.numero_resposta}}</td>
                                     <td>{{formulario.data_criacao}}</td>
-                                    <td><a href="#" uk-icon="pencil"></a></td>
-                                    <td><a href="#" uk-icon="trash"></a></td>
-                                    <td><a href="#" uk-icon="link"></a></td>
+                                    <td><a href="{% url 'formulario' formulario.id %}" uk-icon="pencil"></a></td>
+                                    <td><a href="{% url 'delete_formulario' formulario.id %}" uk-icon="trash" onclick="return confirm('Deseja realmente apagar o formulario {{formulario.titulo}}?')"></a></td>
+                                    <td><a href="{% url 'resposta_formulario' formulario.id %}" uk-icon="link"></a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -137,20 +135,14 @@
                     </div>
                     <div class="uk-flex uk-flex-center@m uk-flex-right@l">
                         <button class="uk-button uk-button-default" type="submit">Criar</button>
-                    </div>
-                
+                    </div>       
                 </form>
-        
-        
             </div>
         </div>
-
     </main>
-
     <script src="{% static 'js/uikit.min.js' %}"></script>
     <script src="{% static 'js/uikit-icons.min.js' %}"></script>
     <script src="{% static 'js/inicio.js' %}"></script>
     <script src="{% static 'js/formulario.js' %}"></script>
 </body>
-
 </html>

@@ -34,9 +34,9 @@
                 <figure class="image-figure">
                     <img class="fir-author-image fir-clickcircle"
                         src="https://scontent.fjdo1-2.fna.fbcdn.net/v/t1.6435-9/80373942_1816976448433274_4484371174750420992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH8TFxZiE19_HeXao0Dj8bjemtiVtzvC7d6a2JW3O8Lt52Xp0gIUfG4zoqlw2fA2plKI5cy8COHGV_3J2TguR_5&_nc_ohc=NgBVBgZJYh0AX-XmSag&_nc_ht=scontent.fjdo1-2.fna&oh=00_AfCVslJg7KdqdVanG2zeFPDAtedcpi9qTXnWxbs0cmdAqw&oe=65130650"
-                        alt="David East - Author">
+                        alt="{{ user.first_name }}">
                     <figcaption class="profile">
-                        <div class="name">Ronildo Lima</div>
+                        <div class="name">{{ user.first_name }}</div>
                         <button class="btn uk-button uk-button-text" type="button">Perfil</button>
                         <div uk-dropdown>
                             <ul class="uk-nav uk-dropdown-nav">
@@ -57,28 +57,33 @@
         <div class="uk-flex uk-flex-center">
             <div class="uk-flex uk-flex-column uk-flex-center">
                 <div class="uk-right uk-section uk-section-primary uk-margin-medium-top uk-width-2xlarge">
-                    <div class="uk-container uk-container-small">
-                        <form class="uk-margin-large-top">
-                            <h1 class="uk-text-center">Nome do formulário</h2>
-                                <ul class="uk-list">
-
-                                    {% for pergunta in perguntas %}
-                                    <li>
-                                        <fieldset class="uk-fieldset">
-                                            <legend class="uk-legend" id="pergunta">{{pergunta.descricao}}</legend>
-                                            <div class="uk-margin">
-                                                <input id="simples" class="uk-input" type="text" placeholder="Resposta"aria-label="Input">
-                                            </div>
-                                        </fieldset>
-                                    </li>
-                                    <div>
-                                        <button class="uk-button uk-button-default">EDITAR</button>
-                                        <button class="uk-button uk-button-default"><a href="{% url 'delete_pergunta' pergunta.id %}" onclick="return confirm('Deseja realmente apagar a conta {{pergunta.descricao}}?')">Excluir</a></button>
-                                    </div>
-                                    {% endfor %}
-                                </ul>
-                        </form>
-
+                    <div class="uk-container uk-container-small ">
+                        <div class="uk-right uk-section uk-section-primary">
+                            <div class="uk-container uk-container-small">
+                                <h1 class="uk-text-center">{{formulario.titulo}}</h1>
+                                {% for pergunta in perguntas %}
+                                <form method="POST">
+                                    {% csrf_token %}             
+                                        <ul class="uk-list">
+                                            <li>
+                                                <fieldset class="uk-fieldset">
+                                                    <legend class="uk-legend" id="pergunta">{{pergunta.descricao}}</legend>
+                                                    <div class="uk-margin">
+                                                        {% for resposta in respostas %}
+                                                        {% if resposta.pergunta_id_id == pergunta.id %}
+                                                        <input type="text" name="id_resposta" hidden value="{{resposta.id}}">
+                                                        <input id="resposta" name="resposta" class="uk-input" type="text" placeholder="Resposta" value="{{resposta.resposta}}" aria-label="Input">
+                                                        <button type="submit" class="uk-button uk-button-danger uk-button-small uk-margin-top uk-width-1-3">Enviar resposta</button>     
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </fieldset>
+                                            </li>
+                                        </ul>
+                                </form>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
