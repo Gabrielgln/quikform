@@ -31,14 +31,13 @@
                 <figure class="image-figure">
                     <img class="fir-author-image fir-clickcircle"
                         src="https://scontent.fjdo1-2.fna.fbcdn.net/v/t1.6435-9/80373942_1816976448433274_4484371174750420992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH8TFxZiE19_HeXao0Dj8bjemtiVtzvC7d6a2JW3O8Lt52Xp0gIUfG4zoqlw2fA2plKI5cy8COHGV_3J2TguR_5&_nc_ohc=NgBVBgZJYh0AX-XmSag&_nc_ht=scontent.fjdo1-2.fna&oh=00_AfCVslJg7KdqdVanG2zeFPDAtedcpi9qTXnWxbs0cmdAqw&oe=65130650"
-                        alt="David East - Author">
+                        alt="{{ user.first_name }}">
                     <figcaption class="profile">
                         <div class="name">{{ user.first_name }}</div>
                         <button class="titles uk-button uk-button-text" type="button">Perfil</button>
                         <div uk-dropdown>
                             <ul class="uk-nav uk-dropdown-nav">
                                 <li><a href="#">Alterar perfil</a></li>
-                                <li class="uk-nav-header">Predefinições</li>
                                 <li><a href="#">Tema</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -65,7 +64,7 @@
                     </p>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-default uk-modal-close" type="button">Sair</button>
-                        <button class="uk-button uk-button-primary" type="button"><a href="">GitHub</a></button>
+                        <button class="uk-button uk-button-primary" type="button"><a href="https://github.com/Gabrielgln/quikform">GitHub</a></button>
                     </p>
                 </div>
             </div>
@@ -95,9 +94,9 @@
         <div class="uk-container uk-container-large">
             <div class="uk-container uk-container-large uk-flex uk-flex-center">
                 <div class="uk-container uk-width-1-2">
-                    <h2>Título</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis id laborum quisquam quas. Nemo, nihil perspiciatis rem ullam itaque cum officiis esse aperiam beatae consectetur delectus, at iusto facilis inventore.</p>
-                    <button class="uk-button uk-button-default">Comece agora &#8594;</button>
+                    <h2>Bem vindo!</h2>
+                    <p>Estamos muito felizes em recebê-lo e proporcionar uma experiência excepcional. Nosso sistema foi projetado para atender às suas necessidades de maneira eficiente e amigável. Explore as diversas funcionalidades disponíveis para tornar sua jornada conosco mais produtiva e agradável.</p>
+                    
                 </div>
 
                 <div class="uk-container right">
@@ -113,7 +112,6 @@
             <div>
                 <div class="uk-card uk-card-body">
                     <h3 class="titles uk-card-title uk-flex uk-flex-center">Crie formulários</h3>
-                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/4838/4838646.png" alt="">
                     </div>
@@ -122,7 +120,6 @@
             <div>
                 <div class="uk-card uk-card-body" uk-scrollspy-class="uk-animation-slide-top">
                     <h3 class="titles uk-card-title uk-flex uk-flex-center">Gere relatórios</h3>
-                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/3094/3094851.png" alt="">
                     </div>
@@ -131,7 +128,6 @@
             <div>
                 <div class="uk-card uk-card-body">
                     <h3 class="titles uk-card-title uk-flex uk-flex-center">Envie por email</h3>
-                    <p class="uk-flex uk-flex-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div class="uk-flex uk-flex-center">
                         <img class="imagem2" src="https://cdn-icons-png.flaticon.com/512/2989/2989993.png" alt="">
                     </div>
@@ -149,41 +145,41 @@
                 <p class="titles sec-news uk-flex uk-flex-center">Insira seu email abaixo e fique por dentro das novidades, saiba tudo
                     em primeira mão.</p>
 
-                <form>
-
+                <form method="POST" action="{% url 'newsletter' %}">
+                    {% csrf_token %} 
                     <div class="uk-margin">
                         <div class="uk-inline">
                             <a class="uk-form-icon" href="#" uk-icon="icon: mail"></a>
-                            <input class="uk-input uk-placeholder" type="text" aria-label="Clickable icon">
+                            <input class="uk-input uk-placeholder" name="email" type="text" aria-label="Clickable icon">
+                            
+                        </div>
+                        
+                    </div>
+                    <button class="titles uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="submit"
+                    uk-toggle="target: #modal-example">Cadastrar</button>
 
+                    <div id="modal-example" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body">
+                            <h2 class="uk-modal-title">Newsletter</h2>
+                            <p>Você agora receberá notícias e atualizações diretamente no seu email.</p>
                         </div>
                     </div>
-
 
                 </form>
 
                 <!-- This is a button toggling the modal -->
-                <button class="titles uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="button"
-                    uk-toggle="target: #modal-example">Cadastrar</button>
+                
 
                 <!-- This is the modal -->
-                <div id="modal-example" uk-modal>
-                    <div class="uk-modal-dialog uk-modal-body">
-                        <h2 class="uk-modal-title">Newsletter</h2>
-                        <p>Ao enviar, você concorda em receber notícias e atualizações diretamente no seu email.</p>
-                        <p class="uk-text-right">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                            <button class="uk-button uk-button-primary" type="submit">Enviar</button>
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
 
     </footer>
 
-    <form action="">
+    <form action="{% url 'contato' %}" method="POST">
+        {% csrf_token %}  
         <h1 id="contato" class="titulo uk-heading-line uk-text-center"><span>Contato</span></h1>
 
         <div class="grid uk-child-width-expand@s " uk-grid>
@@ -198,7 +194,7 @@
                 <h2 class="titles uk-margin-medium-top uk-text-center">Redes sociais</h2>
                 <div class="uk-flex uk-flex-column uk-flex-middle ">
                     <p class="rede-title uk-margin-remove">GitHub</p>
-                    <button class="uk-button uk-button-default uk-margin-medium-bottom"><a href=""><span
+                    <button class="uk-button uk-button-default uk-margin-medium-bottom"><a href="https://github.com/Gabrielgln/quikform"><span
                                 uk-icon="github"></span></a></button>
                     <p class="rede-title uk-margin-remove">Instagram</p>
                     <button class="uk-button uk-button-default uk-margin-medium-bottom"><a href=""><span
@@ -214,19 +210,16 @@
                         <h2 class="titles uk-margin-medium-top">Contato</h2>
 
                         <div class="uk-margin">
-                            <input class="uk-input uk-text-center" type="email" placeholder="Email" aria-label="Input">
+                            <input class="uk-input uk-text-center" type="email" placeholder="Email" aria-label="Input" name="email">
                         </div>
 
                         <div class="uk-margin">
                             <textarea class="uk-textarea uk-text-center" rows="5" placeholder="Escreva sua mensagem"
-                                aria-label="Textarea"></textarea>
+                                aria-label="Textarea" name="comentario"></textarea>
                         </div>
-                        <button class="titles-btn uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Enviar</button>
+                        <button class="titles-btn uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" type="submit">Enviar</button>
                     </fieldset>
-
-
                 </form>
-
             </div>
         </div>
 
